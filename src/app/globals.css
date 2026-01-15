@@ -1,26 +1,91 @@
+@config "../../tailwind.config.ts";
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --animate-scroll: scroll var(--animation-duration, 40s)
+    var(--animation-direction, forwards) linear infinite;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  @keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 0.5rem));
+    }
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  /* Light mode (70-30-10 flip)
+     70% canvas: white / faint icy tint
+     30% containers: icy blue
+     10% accents/text: ink black (body), deep space (headings/primary)
+  */
+  --background: 240 248 255; /* #F0F8FF */
+  --foreground: 7 25 38; /* #071926 */
+
+  --card: 167 218 245; /* #a7daf5 */
+  --card-foreground: 7 25 38; /* #071926 */
+
+  --popover: 167 218 245; /* #a7daf5 */
+  --popover-foreground: 7 25 38; /* #071926 */
+
+  --primary: 0 52 89; /* #003459 */
+  --primary-foreground: 255 255 255; /* #FFFFFF */
+
+  --secondary: 167 218 245; /* #a7daf5 */
+  --secondary-foreground: 0 52 89; /* #003459 */
+
+  --muted: 167 218 245; /* #a7daf5 */
+  --muted-foreground: 0 52 89; /* #003459 */
+
+  --accent: 90 185 234; /* #5ab9ea */
+  --accent-foreground: 7 25 38; /* #071926 */
+
+  --border: 90 185 234; /* #5ab9ea */
+  --input: 255 255 255; /* #FFFFFF */
+  --ring: 0 52 89; /* #003459 */
+
+  /* Utility tokens (palette-safe) */
+  --overlay: 7 25 38; /* #071926 */
+}
+
+.dark {
+  /* Dark mode (primary theme, 70-30-10)
+     70% canvas: ink black
+     30% containers: deep space (often with opacity)
+     10% accents/text: icy blue + fresh sky
+  */
+  --background: 7 25 38; /* #071926 */
+  --foreground: 167 218 245; /* #a7daf5 */
+
+  --card: 0 52 89; /* #003459 */
+  --card-foreground: 167 218 245; /* #a7daf5 */
+
+  --popover: 0 52 89; /* #003459 */
+  --popover-foreground: 167 218 245; /* #a7daf5 */
+
+  --primary: 90 185 234; /* #5ab9ea */
+  --primary-foreground: 7 25 38; /* #071926 */
+
+  --secondary: 0 52 89; /* #003459 */
+  --secondary-foreground: 167 218 245; /* #a7daf5 */
+
+  --muted: 0 52 89; /* #003459 */
+  --muted-foreground: 90 185 234; /* #5ab9ea */
+
+  --accent: 0 52 89; /* #003459 */
+  --accent-foreground: 167 218 245; /* #a7daf5 */
+
+  --border: 29 157 221; /* #1d9ddd */
+  --input: 0 52 89; /* #003459 */
+  --ring: 29 157 221; /* #1d9ddd */
+
+  --overlay: 7 25 38; /* #071926 */
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: rgb(var(--background));
+  color: rgb(var(--foreground));
 }
