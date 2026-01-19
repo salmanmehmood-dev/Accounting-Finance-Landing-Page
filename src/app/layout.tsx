@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { siteConfig } from "@/data/site-content";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://elevarehub.com"),
@@ -27,6 +28,9 @@ export const metadata: Metadata = {
   },
 };
 
+import { Footer } from "@/components/layout/Footer";
+import { Navbar } from "@/components/ui/Navbar";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -34,8 +38,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} antialiased bg-background text-foreground`}>
-        <ThemeProvider>{children}</ThemeProvider>
+      <body className={`${inter.variable} ${outfit.variable} antialiased bg-background text-foreground font-sans`}>
+        <ThemeProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

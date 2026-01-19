@@ -1,23 +1,26 @@
-import { Footer } from "@/components/layout/Footer";
-import { Navbar } from "@/components/layout/Navbar";
+import { CallToAction } from "@/components/home/CallToAction";
 import { FAQ } from "@/components/home/FAQ";
 import { Hero } from "@/components/home/Hero";
 import { Process } from "@/components/home/Process";
-import { Services } from "@/components/home/Services";
+import { ServicesGrid } from "@/components/home/ServicesGrid";
+import { TechStack } from "@/components/home/TechStack";
 import { Testimonials } from "@/components/home/Testimonials";
+import { TestimonialsWithStats } from "@/components/home/TestimonialsWithStats";
+import { WhyChooseUs } from "@/components/home/WhyChooseUs";
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
-      <Navbar />
-      <main className="flex flex-col gap-20">
+    <div className="min-h-screen bg-background text-foreground selection:bg-primary/20">
+      <main className="flex flex-col gap-0">
         <Hero />
-        <Services />
+        <ServicesGrid />
         <Process />
-        <Testimonials />
+        <TechStack />
+        <WhyChooseUs />
+        <TestimonialsWithStats />
         <FAQ />
+        <CallToAction />
       </main>
-      <Footer />
     </div>
   );
 }

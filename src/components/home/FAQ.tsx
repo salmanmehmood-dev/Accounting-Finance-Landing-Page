@@ -31,7 +31,7 @@ export function FAQ() {
     <section id="faq" className="py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
-          <h2 className="text-3xl font-semibold tracking-tight text-foreground">
+          <h2 className="text-3xl md:text-4xl font-bold font-heading tracking-tight text-foreground">
             FAQ
           </h2>
           <p className="mt-3 text-muted-foreground">
@@ -45,7 +45,7 @@ export function FAQ() {
               <AccordionItem
                 key={f.q}
                 value={f.q}
-                className="rounded-2xl border border-border/40 bg-card shadow-sm dark:border-white/10 dark:bg-brand-ink/50 dark:shadow-none"
+                className="rounded-2xl border border-border/50 bg-card/50 shadow-sm backdrop-blur-sm"
               >
                 <AccordionTrigger className="text-foreground">
                   {f.q}
