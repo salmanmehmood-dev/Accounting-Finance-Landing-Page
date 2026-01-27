@@ -72,11 +72,11 @@ export const TracingBeam = ({
             }}
             animate={{
               backgroundColor:
-                scrollYProgress.get() > 0 ? "white" : "hsl(var(--primary))",
+                scrollYProgress.get() > 0 ? "white" : "var(--primary-hex, #213f8b)",
               borderColor:
-                scrollYProgress.get() > 0 ? "white" : "hsl(var(--primary))",
+                scrollYProgress.get() > 0 ? "white" : "var(--primary-hex, #213f8b)",
             }}
-            className="h-2 w-2  rounded-full border border-neutral-300 bg-white"
+            className="h-2 w-2 rounded-full border border-neutral-300 bg-white"
           />
         </motion.div>
         <svg

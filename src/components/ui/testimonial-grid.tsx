@@ -1,7 +1,7 @@
 "use client";
 
 import { useScroll, useTransform, motion } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
@@ -35,6 +35,15 @@ export const TestimonialGrid = ({
   // For a robust parallax, we often force a structure.
   // Let's stick to a grid that becomes 1 col on mobile and 3 on desktop, but apply parallax only on desktop.
   
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const checkDesktop = () => setIsDesktop(window.innerWidth >= 768);
+    checkDesktop();
+    window.addEventListener("resize", checkDesktop);
+    return () => window.removeEventListener("resize", checkDesktop);
+  }, []);
+
   const third = Math.ceil(items.length / 3);
   const firstPart = items.slice(0, third);
   const secondPart = items.slice(third, 2 * third);
@@ -46,21 +55,21 @@ export const TestimonialGrid = ({
         className={cn("grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-start gap-8 max-w-7xl mx-auto px-4", className)}
     >
         {/* Column 1 */}
-        <motion.div style={{ y: y1 }} className="grid gap-8">
+        <motion.div style={{ y: isDesktop ? y1 : 0 }} className="grid gap-8">
             {firstPart.map((item, idx) => (
                 <TestimonialCard key={"col1" + idx} item={item} />
             ))}
         </motion.div>
 
         {/* Column 2 */}
-        <motion.div style={{ y: y2 }} className="grid gap-8 md:mt-12">
+        <motion.div style={{ y: isDesktop ? y2 : 0 }} className="grid gap-8 md:mt-12">
             {secondPart.map((item, idx) => (
                 <TestimonialCard key={"col2" + idx} item={item} />
             ))}
         </motion.div>
 
         {/* Column 3 */}
-        <motion.div style={{ y: y3 }} className="grid gap-8">
+        <motion.div style={{ y: isDesktop ? y3 : 0 }} className="grid gap-8">
              {thirdPart.map((item, idx) => (
                 <TestimonialCard key={"col3" + idx} item={item} />
             ))}
@@ -74,7 +83,7 @@ const TestimonialCard = ({ item }: { item: { quote: string; name: string; title:
         <div className="break-inside-avoid">
             {/* Speech Bubble */}
             <div className="relative bg-card border border-border/50 p-8 rounded-3xl rounded-bl-sm shadow-sm hover:shadow-md transition-shadow">
-                <p className="text-muted-foreground text-lg leading-relaxed relative z-10">
+                <p className="text-foreground/80 text-lg leading-relaxed relative z-10 font-medium">
                     "{item.quote}"
                 </p>
                 {/* Tail */}

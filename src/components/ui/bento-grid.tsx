@@ -35,10 +35,15 @@ export const BentoGridItem = ({
   return (
     <div
       className={cn(
-        "row-span-1 rounded-2xl group/bento hover:shadow-2xl hover:shadow-primary/10 transition duration-300 p-6 bg-card border border-border/50 justify-between flex flex-col space-y-4 hover:border-primary/30 relative overflow-hidden",
+        "row-span-1 rounded-2xl group/bento transition duration-300 p-6 justify-between flex flex-col space-y-4 relative overflow-hidden",
+        "skeuo-card border-none", // Apply skeuomorphic card style
+        "hover:shadow-2xl hover:-translate-y-1", // Lift effect
         className
       )}
     >
+        {/* Ornate border effect overlay */}
+       <div className="absolute inset-0 ornate-border opacity-50 pointer-events-none rounded-2xl" />
+       
        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover/bento:opacity-100 transition-opacity duration-500 pointer-events-none" />
       
       <div className="group-hover/bento:scale-[1.02] transition-transform duration-300 ease-out h-full flex flex-col">

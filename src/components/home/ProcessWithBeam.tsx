@@ -8,10 +8,10 @@ import { cn } from "@/lib/utils";
 
 export function ProcessWithBeam() {
   return (
-    <TracingBeam className="px-6">
+    <TracingBeam className="px-4 md:px-8 lg:px-12">
       <div className="max-w-5xl mx-auto antialiased pt-4 relative">
         <div className="mb-12 text-center md:text-left">
-             <h2 className="text-3xl md:text-5xl font-bold font-heading text-foreground mb-4">
+             <h2 className="text-3xl md:text-5xl font-bold font-heading text-foreground mb-4 theme-gradient-text pb-1">
                 How We Work
              </h2>
              <p className="text-lg text-muted-foreground">
@@ -32,7 +32,7 @@ export function ProcessWithBeam() {
                     <h3 className="text-sm font-bold text-primary tracking-widest uppercase mb-2">
                         Step {index + 1}
                     </h3>
-                    <h4 className="text-2xl md:text-3xl font-bold font-heading text-foreground mb-4">
+                    <h4 className="text-2xl md:text-3xl font-bold font-heading text-foreground mb-4 theme-text-shadow">
                         {step.title}
                     </h4>
                     <p className="text-lg text-muted-foreground leading-relaxed">
@@ -49,6 +49,7 @@ export function ProcessWithBeam() {
                         className="object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-primary/10 mix-blend-overlay" />
+                    <div className="absolute inset-0 ornate-border opacity-30 rounded-3xl pointer-events-none" />
                 </div>
             </div>
           </div>

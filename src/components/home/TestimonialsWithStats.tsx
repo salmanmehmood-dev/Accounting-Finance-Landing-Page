@@ -12,7 +12,7 @@ export function TestimonialsWithStats() {
 
   return (
     <section className="py-24 bg-background overflow-hidden relative">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10 w-full">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           
           {/* Left Column: Heading & Stats */}
@@ -23,7 +23,7 @@ export function TestimonialsWithStats() {
                </span>
                <h2 className="text-4xl md:text-5xl font-bold font-heading text-foreground tracking-tight leading-tight">
                 Lets Hear From Our <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Clients</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent theme-text-shadow">Clients</span>
                </h2>
                <p className="mt-4 text-lg text-muted-foreground max-w-md">
                  See how we've helped businesses like yours achieve financial clarity and success.
@@ -57,7 +57,7 @@ export function TestimonialsWithStats() {
           </div>
 
           {/* Right Column: World Map & Floating Cards */}
-          <div className="relative h-[600px] w-full flex items-center justify-center">
+          <div className="relative h-[500px] md:h-[600px] w-full flex items-center justify-center">
               <div className="absolute inset-0 z-0">
                   <WorldMap 
                     dots={[
@@ -80,10 +80,10 @@ export function TestimonialsWithStats() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: i * 0.2, duration: 0.5 }}
                         className={cn(
-                            "absolute p-6 rounded-2xl bg-card/80 backdrop-blur-md border border-border/50 shadow-xl max-w-sm",
-                            i === 0 ? "top-10 right-0 md:right-10" : 
-                            i === 1 ? "top-1/2 left-0 -translate-y-1/2 z-20" : 
-                            "bottom-20 right-10"
+                            "absolute p-4 md:p-6 rounded-2xl skeuo-card border-none max-w-[85vw] md:max-w-sm",
+                            i === 0 ? "top-4 right-4 md:top-10 md:right-10" : 
+                            i === 1 ? "top-1/2 left-4 md:left-0 -translate-y-1/2 z-20" : 
+                            "bottom-4 right-4 md:bottom-20 md:right-10"
                         )}
                       >
                          <div className="flex gap-1 mb-2">

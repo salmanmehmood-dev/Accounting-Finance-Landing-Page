@@ -8,7 +8,7 @@ import { siteConfig } from "@/data/site-content";
 export function TechStack() {
   return (
     <section className="py-24 bg-background overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 text-center mb-16">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 text-center mb-16">
         <h2 className="text-3xl md:text-5xl font-heading font-bold text-foreground mb-6">
           Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Tech Stack</span>
         </h2>
@@ -34,7 +34,7 @@ export function TechStack() {
                 delay: index * 0.2, // Stagger effect
               }}
             >
-              <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-card border border-border/50 shadow-lg flex items-center justify-center p-4 hover:shadow-primary/20 hover:border-primary/50 transition-all duration-300">
+              <div className="w-20 h-20 md:w-32 md:h-32 rounded-full bg-card border border-border/50 shadow-lg flex items-center justify-center p-4 hover:shadow-primary/20 hover:border-primary/50 transition-all duration-300">
                 <div className="relative w-full h-full">
                   <Image
                     src={tech.logo}

@@ -15,6 +15,32 @@ html {
   scroll-behavior: smooth;
 }
 
+@layer base {
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-7xl;
+    font-size: clamp(2.5rem, 5vw + 1rem, 5rem);
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+    font-size: clamp(2rem, 4vw + 1rem, 3.5rem);
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl lg:text-4xl;
+    font-size: clamp(1.75rem, 3vw + 1rem, 2.5rem);
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl lg:text-3xl;
+    font-size: clamp(1.5rem, 2vw + 1rem, 2rem);
+  }
+
+  p {
+    @apply text-base md:text-lg;
+  }
+}
+
 :root {
   /* Light Mode - Blue Lagoon Theme */
   /* Background: White/Very Light Blue Tint */
@@ -32,6 +58,7 @@ html {
   /* Primary: French Blue #213f8b */
   --primary: 223 61% 34%;
   --primary-foreground: 210 40% 98%;
+  --primary-hex: #213f8b;
 
   /* Secondary: Cerulean #167fa3 (Vivid, aquatic) */
   --secondary: 195 76% 36%;
@@ -91,6 +118,86 @@ html {
 
   --border: 245 40% 25%;
   --input: 245 40% 25%;
-  --ring: 179 89% 40%;
   /* Strong Cyan */
+}
+
+@layer utilities {
+
+  /* Skeuomorphic Styles */
+  .skeuo-card {
+    background: linear-gradient(145deg, hsl(var(--card)), hsl(var(--muted)));
+    box-shadow:
+      5px 5px 10px rgba(0, 0, 0, 0.1),
+      -5px -5px 10px rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+  }
+
+  .dark .skeuo-card {
+    background: linear-gradient(145deg, hsl(var(--card)), hsl(var(--background)));
+    box-shadow:
+      5px 5px 10px rgba(0, 0, 0, 0.3),
+      -5px -5px 10px rgba(255, 255, 255, 0.05);
+  }
+
+  .skeuo-inner {
+    box-shadow:
+      inset 5px 5px 10px rgba(0, 0, 0, 0.1),
+      inset -5px -5px 10px rgba(255, 255, 255, 0.8);
+  }
+
+  .dark .skeuo-inner {
+    box-shadow:
+      inset 5px 5px 10px rgba(0, 0, 0, 0.3),
+      inset -5px -5px 10px rgba(255, 255, 255, 0.05);
+  }
+
+  /* Ornate Borders */
+  .ornate-border {
+    position: relative;
+    border: 3px solid transparent;
+    border-radius: var(--radius);
+    background-image:
+      linear-gradient(hsl(var(--card)), hsl(var(--card))),
+      linear-gradient(to right, hsl(var(--primary)), hsl(var(--secondary)));
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+  }
+
+  /* Layered Shadows */
+  .layered-shadow {
+    box-shadow:
+      0 1px 1px hsl(0deg 0% 0% / 0.075),
+      0 2px 2px hsl(0deg 0% 0% / 0.075),
+      0 4px 4px hsl(0deg 0% 0% / 0.075),
+      0 8px 8px hsl(0deg 0% 0% / 0.075),
+      0 16px 16px hsl(0deg 0% 0% / 0.075);
+  }
+
+  /* Thematic Typography */
+  .theme-text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .theme-gradient-text {
+    background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--secondary)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Unique Shapes & Clip Paths */
+  .clip-hexagon {
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  }
+
+  .clip-diamond {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  }
+
+  .clip-polygon-scatter {
+    clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
+  }
+
+  .border-radius-blob {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
 }

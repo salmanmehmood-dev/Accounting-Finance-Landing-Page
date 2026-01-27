@@ -28,7 +28,7 @@ export function Navbar() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <Link
           href="#home"
-          className="flex items-center gap-2 font-semibold tracking-tight text-brand-ink dark:text-brand-icy"
+          className="flex items-center gap-2 font-semibold tracking-tight text-brand-ink dark:text-brand-icy text-xl md:text-2xl"
           onClick={() => setMobileOpen(false)}
         >
           <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-brand-sky to-brand-bell text-white shadow-sm">
@@ -43,7 +43,9 @@ export function Navbar() {
             {siteConfig.navLinks.map((link) => (
               <NavigationMenuItem key={link.href}>
                 <NavigationMenuLink asChild>
-                  <Link href={link.href}>{link.name}</Link>
+                  <Link href={link.href} className="text-sm lg:text-base font-medium px-4 py-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-md transition-colors">
+                    {link.name}
+                  </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
             ))}
@@ -95,7 +97,7 @@ export function Navbar() {
           aria-modal="true"
         >
           <div className="flex items-center justify-between">
-            <div className="text-sm font-semibold text-brand-ink dark:text-brand-icy">
+            <div className="text-sm sm:text-base font-semibold text-brand-ink dark:text-brand-icy">
               Menu
             </div>
             <button
@@ -113,7 +115,7 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="rounded-xl px-4 py-3 text-base font-medium text-brand-ink/90 transition-colors hover:bg-brand-icy/10 dark:text-brand-icy/90 dark:hover:bg-white/5"
+                className="rounded-xl px-4 py-3 text-base sm:text-lg font-medium text-brand-ink/90 transition-colors hover:bg-brand-icy/10 dark:text-brand-icy/90 dark:hover:bg-white/5"
                 onClick={() => setMobileOpen(false)}
               >
                 {link.name}
@@ -121,7 +123,7 @@ export function Navbar() {
             ))}
           </div>
 
-          <div className="mt-8 rounded-2xl border border-brand-icy/10 bg-white/60 p-4 text-sm text-brand-ink/70 dark:bg-white/5 dark:text-brand-icy/70">
+          <div className="mt-8 rounded-2xl border border-brand-icy/10 bg-white/60 p-4 text-xs sm:text-sm text-brand-ink/70 dark:bg-white/5 dark:text-brand-icy/70">
             {siteConfig.general.tagline}
           </div>
         </div>

@@ -10,7 +10,7 @@ export function CallToAction() {
       <div className="absolute inset-0 bg-primary/5 -z-10" />
       <div className="absolute inset-0 bg-linear-to-r from-primary/10 to-secondary/10 -z-10" />
       
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-8">
             <h2 className="text-4xl md:text-6xl font-heading font-bold tracking-tight text-foreground">
                 Ready to optimize your <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">financial future?</span>

@@ -24,12 +24,14 @@ export function ServicesShowcase() {
         <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+        <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-12 lg:gap-24 items-start">
             
             {/* Left: Services Grid */}
-            <div className="grid gap-6 sm:grid-cols-2">
+            <div className="grid gap-6 sm:grid-cols-2 w-full">
                 {siteConfig.services.map((service, index) => {
                     const Icon = iconMap[service.icon] || Activity;
+                    const isLastOdd = index === siteConfig.services.length - 1 && siteConfig.services.length % 2 !== 0;
+                    
                     return (
                         <motion.div
                             key={index}
@@ -39,13 +41,16 @@ export function ServicesShowcase() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             viewport={{ once: true }}
-                            className="group p-8 rounded-3xl bg-card border border-border/50 hover:border-primary/50 hover:bg-accent/5 transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between h-full min-h-[280px] cursor-pointer"
+                            className={cn(
+                                "group p-6 sm:p-8 rounded-3xl bg-card border border-border/50 hover:border-primary/50 hover:bg-accent/5 transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between h-full min-h-[260px] cursor-pointer",
+                                isLastOdd && "sm:col-span-2"
+                            )}
                         >
                             <div>
-                                <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform duration-300">
-                                    <Icon className="w-6 h-6" />
+                                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 sm:mb-6 text-primary group-hover:scale-110 transition-transform duration-300">
+                                    <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                                 </div>
-                                <h3 className="text-xl font-bold font-heading text-foreground mb-3">
+                                <h3 className="text-lg sm:text-xl font-bold font-heading text-foreground mb-2 sm:mb-3">
                                     {service.title}
                                 </h3>
                                 <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
@@ -53,7 +58,7 @@ export function ServicesShowcase() {
                                 </p>
                             </div>
                             
-                            <div className="mt-6 pt-6 border-t border-border/10 flex items-center text-sm font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div className="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-border/10 flex items-center text-sm font-medium text-primary opacity-100 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                 Learn more <ArrowRight className="ml-2 w-4 h-4" />
                             </div>
                         </motion.div>
@@ -62,15 +67,15 @@ export function ServicesShowcase() {
             </div>
 
             {/* Right: Sticky Content */}
-            <div className="lg:sticky lg:top-32 pt-12 self-start">
+            <div className="lg:sticky lg:top-32 pt-0 lg:pt-12 self-start w-full">
                 <div className="mb-6 h-1 w-20 bg-primary/50 rounded-full" />
-                <span className="text-sm font-bold tracking-widest text-muted-foreground uppercase mb-4 block">
+                <span className="text-sm font-bold tracking-widest text-muted-foreground uppercase mb-3 block">
                     Our Services
                 </span>
-                <h2 className="text-4xl md:text-5xl font-bold font-heading text-foreground mb-6 leading-tight">
+                <h2 className="text-3xl md:text-5xl font-bold font-heading text-foreground mb-4 md:mb-6 leading-tight">
                     We Can Help You Solve Your Problem Through <span className="text-primary">Our Services</span>
                 </h2>
-                <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                <p className="text-base md:text-lg text-muted-foreground mb-6 md:mb-8 leading-relaxed">
                     We are a financial strategy and digital advisory agency with over a decade of experience, crafting solutions that resonate with market demands and deliver tangible results.
                     <br /><br />
                     From intricate compliance audits to day-to-day bookkeeping, our expert team ensures your numbers tell a success story.
@@ -126,8 +131,8 @@ export function ServicesShowcase() {
                                 </h2>
                                 
                                 <div className="mb-6 flex items-center gap-2">
-                                     <div className="p-2 rounded-lg bg-primary/10 text-primary">
-                                        {React.createElement(iconMap[selectedService.icon] || Activity, { size: 20 })}
+                                     <div className="p-3 rounded-xl bg-primary text-primary-foreground shadow-lg shadow-primary/30">
+                                        {React.createElement(iconMap[selectedService.icon] || Activity, { size: 24 })}
                                      </div>
                                      <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Service Details</span>
                                 </div>
